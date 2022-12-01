@@ -45,17 +45,22 @@ void print2DArray(int[,] array)
 int sumOfDiag(int[,] array)
 {
     int sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    int length = (array.GetLength(0) > array.GetLength(1)) ? array.GetLength(1) : array.GetLength(0);
+//  for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < length; i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (i == j)
-            {
-                sum += array[i, j];
-            }
-        }
-        Console.WriteLine();
+        sum += array[i, i]; 
     }
+//  {
+//        for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//            if (i == j)
+//            {
+//                sum += array[i, j];    
+//            }
+//        }
+//        Console.WriteLine();
+//   }
     return sum;
 } 
 int[,] array = generate2Darray(5, 7, 100);
